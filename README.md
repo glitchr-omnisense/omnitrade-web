@@ -5,6 +5,13 @@ fetched and its own markup read as an Omnitrade `Product` - the JSON-LD `Product
 `ProductGroup` and its variants) most shops publish for search engines, else schema.org
 microdata, else the OpenGraph tags. No account, no key. And affiliate links, by host.
 
+```php
+$gateway = (new WebGatewayFactory($http))->create([]);   // $http: the application's HTTP client; none given, the factory makes its own
+```
+
+No framework needed: the package requires `glitchr/omnitrade` and `symfony/http-client`. In a
+Symfony application, the same through the bundle's configuration:
+
 ```yaml
 omnitrade:
     gateways:

@@ -3,7 +3,6 @@
 namespace Omnitrade\Web;
 
 use Omnitrade\Config;
-use Omnitrade\Exception\InvalidConfigException;
 use Omnitrade\GatewayFactory;
 use Omnitrade\Web\Action\AffiliateLinkAction;
 use Omnitrade\Web\Action\FetchProductAction;
@@ -40,10 +39,6 @@ final class WebGatewayFactory extends GatewayFactory
             'currency' => 'EUR',
             'affiliate' => [],
             'omnitrade.api' => function (Config $c) {
-                if (!$this->http && !class_exists(HttpClient::class)) {
-                    throw new InvalidConfigException('The "web" gateway needs symfony/http-client.');
-                }
-
                 return new Api($this->http ?? HttpClient::create(), (string) $c['user_agent'], (int) $c['timeout'], (int) $c['max_bytes'], (bool) $c['allow_private']);
             },
             'omnitrade.action.product' => static fn (Config $c) => new FetchProductAction(new PageReader((string) $c['currency'])),
