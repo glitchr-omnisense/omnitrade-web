@@ -39,4 +39,4 @@ limits (pages drawn by JavaScript, shops that refuse robots).
 Addresses are pasted by anyone: only `http(s)` is read, at most `max_bytes`, and never a machine
 of the local network unless `allow_private` says so.
 
-License: LGPL-3.0-or-later.
+License: MIT since 2026-10-09; earlier versions remain published under LGPL-3.0-or-later.
