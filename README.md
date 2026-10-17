@@ -1,6 +1,6 @@
 # omnitrade/web
 
-Any product page for [glitchr/omnitrade](https://github.com/glitchr-studio/omnitrade): the page is
+Any product page for [omniscient/omnitrade](https://github.com/glitchr-studio/omnitrade): the page is
 fetched and its own markup read as an Omnitrade `Product` - the JSON-LD `Product` (or
 `ProductGroup` and its variants) most shops publish for search engines, else schema.org
 microdata, else the OpenGraph tags. No account, no key. And affiliate links, by host.
@@ -9,7 +9,7 @@ microdata, else the OpenGraph tags. No account, no key. And affiliate links, by 
 $gateway = (new WebGatewayFactory($http))->create([]);   // $http: the application's HTTP client; none given, the factory makes its own
 ```
 
-No framework needed: the package requires `glitchr/omnitrade` and `symfony/http-client`. In a
+No framework needed: the package requires `omniscient/omnitrade` and `symfony/http-client`. In a
 Symfony application, the same through the bundle's configuration:
 
 ```yaml

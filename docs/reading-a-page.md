@@ -11,7 +11,7 @@ order: 10
 composer require omnitrade/web symfony/http-client
 ```
 
-With glitchr/omnitrade's Symfony bundle the `web` factory is registered as
+With omniscient/omnitrade's Symfony bundle the `web` factory is registered as
 soon as the package is installed; without Symfony:
 
 ```php
