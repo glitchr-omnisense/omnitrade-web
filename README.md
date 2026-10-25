@@ -33,7 +33,8 @@ $registry->get('web')->affiliateLink('https://www.amazon.fr/dp/B0C1234567?psc=1'
 
 Nothing is bought here: `supports(Purchase::class)` is false, as for `FetchProducts` and
 `FetchInventory` (the web is not a catalogue to page through). See
-[docs/reading-a-page.md](docs/reading-a-page.md) for what is read where, the options and the
+the manual, [docs/index.md](docs/index.md) (the options, the addresses read, affiliate links,
+errors), and [docs/reading-a-page.md](docs/reading-a-page.md) for what is read where and the
 limits (pages drawn by JavaScript, shops that refuse robots).
 
 Addresses are pasted by anyone: only `http(s)` is read, at most `max_bytes`, and never a machine
