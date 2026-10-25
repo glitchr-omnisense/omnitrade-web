@@ -3,11 +3,11 @@ title: Reading a product page
 order: 10
 ---
 
-## omnitrade/web: reading a product page
+# omnitrade/web: reading a product page
 
 How a page becomes a `Product`. Installation and options: at the head of this manual.
 
-### What is read, in order
+## What is read, in order
 
 1. **JSON-LD** (`<script type="application/ld+json">`): the first `Product`
    (also `IndividualProduct`, `ProductModel`, `Book`, `Vehicle`) or
@@ -37,14 +37,14 @@ gives `null`.
 Prices are read whatever their writing: `1 299,00`, `1.299,00 €`,
 `$1,299.00`.
 
-### Affiliate links
+## Affiliate links
 
 `affiliateLink($url, ?$tag)` adds the parameters configured for the page's
 host and drops the tracking ones it came with (`utm_*`, `ref`, `psc`…). The
 request's tag replaces the value of a rule's only parameter. No rule, or a
 rule left empty: `null`.
 
-### Limits
+## Limits
 
 - A page drawn by JavaScript with no product markup in its HTML gives `null`.
 - Shops that refuse robots answer an error page or a captcha: a
