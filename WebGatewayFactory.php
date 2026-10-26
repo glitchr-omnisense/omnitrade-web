@@ -15,7 +15,7 @@ use Symfony\Component\HttpClient\HttpClient;
  * key: fetchProduct() takes the page's address. Nothing is bought here.
  *
  *   options:
- *     user_agent: 'Mozilla/5.0 (compatible; Omnitrade/1.0; +https://github.com/glitchr-studio/omnitrade-web)'
+ *     user_agent: 'Mozilla/5.0 (compatible; Omnitrade/1.0; +https://github.com/glitchr-omnisense/omnitrade-web)'
  *     timeout: 10
  *     max_bytes: 3000000          # a page larger than this is cut there
  *     allow_private: false        # true: addresses of the local network may be read (tests, an intranet)

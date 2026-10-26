@@ -13,7 +13,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
  */
 final class Api
 {
-    public const USER_AGENT = 'Mozilla/5.0 (compatible; Omnitrade/1.0; +https://github.com/glitchr-studio/omnitrade-web)';
+    public const USER_AGENT = 'Mozilla/5.0 (compatible; Omnitrade/1.0; +https://github.com/glitchr-omnisense/omnitrade-web)';
 
     public function __construct(
         private readonly HttpClientInterface $http,

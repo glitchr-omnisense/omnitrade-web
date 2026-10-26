@@ -1,6 +1,6 @@
 # omnitrade/web
 
-Any product page for [omniscient/omnitrade](https://github.com/glitchr-studio/omnitrade): the page is
+Any product page for [omnisense/omnitrade](https://github.com/glitchr-omnisense/omnitrade): the page is
 fetched and its own markup read as an Omnitrade `Product` - the JSON-LD `Product` (or
 `ProductGroup` and its variants) most shops publish for search engines, else schema.org
 microdata, else the OpenGraph tags. No account, no key, no API: one `GET` of the page's address.
@@ -17,8 +17,8 @@ And affiliate links, by host, without any call.
 composer require omnitrade/web
 ```
 
-Requires PHP 8.2, `ext-dom`, `ext-libxml`, `omniscient/omnitrade` (1.x) and `symfony/http-client`
-(6.4, 7 or 8). With omniscient/omnitrade's Symfony bundle the `web` factory is registered as soon as
+Requires PHP 8.2, `ext-dom`, `ext-libxml`, `omnisense/omnitrade` (1.x) and `symfony/http-client`
+(6.4, 7 or 8). With omnisense/omnitrade's Symfony bundle the `web` factory is registered as soon as
 the package is installed.
 
 ```php
@@ -34,7 +34,7 @@ those programmes' own accounts.
 
 | Option | Type | Default | Required | |
 |---|---|---|---|---|
-| `user_agent` | string | `Mozilla/5.0 (compatible; Omnitrade/1.0; +https://github.com/glitchr-studio/omnitrade-web)` | no | what the shop sees; the request also sends `Accept: text/html,application/xhtml+xml;q=0.9,*/*;q=0.5` and `Accept-Language: fr-FR,fr;q=0.9,en;q=0.8` |
+| `user_agent` | string | `Mozilla/5.0 (compatible; Omnitrade/1.0; +https://github.com/glitchr-omnisense/omnitrade-web)` | no | what the shop sees; the request also sends `Accept: text/html,application/xhtml+xml;q=0.9,*/*;q=0.5` and `Accept-Language: fr-FR,fr;q=0.9,en;q=0.8` |
 | `timeout` | int | `10` | no | seconds |
 | `max_bytes` | int | `3000000` | no | a longer page is cut there |
 | `allow_private` | bool | `false` | no | `true`: addresses of the local network may be read (an intranet, tests) |
@@ -155,7 +155,7 @@ NULL
 [web] "192.168.1.10" is on the local network. (private_address)
 ```
 
-(run on 2026-10-25 in omniscient/omnitrade's harness image, PHP 8.4, with no network.)
+(run on 2026-10-25 in omnisense/omnitrade's harness image, PHP 8.4, with no network.)
 
 What it shows: a `ProductGroup`'s variants, their `variesBy` values as options (named by the
 schema.org property, `size`), a price written `16,00` read as 16.00 EUR, the out-of-stock variant
@@ -191,5 +191,5 @@ refuse robots are limits, not tested cases ([limits](reading-a-page.md#limits)).
 An independent client, affiliated with no shop it reads and with no partner programme it writes
 links for. Whoever runs it complies with the terms of each site it reads (their robots rules and
 their conditions of use included) and of each partner programme, and obtains what they require:
-see omniscient/omnitrade's README, Responsibility section.
+see omnisense/omnitrade's README, Responsibility section.
 
