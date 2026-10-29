@@ -204,5 +204,5 @@ refuse robots are limits, not tested cases ([limits](reading-a-page.md#limits)).
 An independent client, affiliated with no shop it reads and with no partner programme it writes
 links for. Whoever runs it complies with the terms of each site it reads (their robots rules and
 their conditions of use included) and of each partner programme, and obtains what they require:
-see omnisense/omnitrade's README, Responsibility section.
+see the README's Responsibility section.
 

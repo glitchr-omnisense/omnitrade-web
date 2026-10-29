@@ -40,4 +40,18 @@ limits (pages drawn by JavaScript, shops that refuse robots).
 Addresses are pasted by anyone: only `http(s)` is read, at most `max_bytes`, and never a machine
 of the local network unless `allow_private` says so.
 
+## Responsibility
+
+This package is an independent client: it is not affiliated with, endorsed by or sponsored by any
+shop whose pages it reads, nor by any partner programme it writes links for. It reads a page on
+behalf of whoever runs it, and it does not redistribute what it reads beyond the short excerpts
+kept as test fixtures. Its MIT licence covers this package's code only and grants no right to the
+pages read or to their content.
+
+Whoever installs and runs this package is responsible for complying with the terms of each site it
+reads (its robots rules and its conditions of use included) and of each partner programme whose
+links it writes, for obtaining whatever they require (an agreement, an attribution, a rate to
+respect), and for any use made of what it returns. The authors publish it free of charge, make no
+commercial use of it, and accept no liability for how it is used (see [LICENSE](LICENSE)).
+
 License: MIT since 2026-10-09; earlier versions remain published under LGPL-3.0-or-later.
