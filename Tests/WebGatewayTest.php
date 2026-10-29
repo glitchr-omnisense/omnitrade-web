@@ -53,7 +53,7 @@ final class WebGatewayTest extends TestCase
         self::assertSame('web', $product->provider);
         self::assertSame('https://boutique.example/p/poussette-yoyo', $product->reference, 'the canonical address');
         self::assertSame('Poussette Yoyo³ & nacelle', $product->title);
-        self::assertSame("Légère, pliable d'une main.", $product->description);
+        self::assertSame('Légère, pliable d&apos;une main.', $product->description, 'HTML, as the contract has it: the text escaped');
         self::assertSame('Stokke', $product->brand);
         self::assertSame(['Puériculture', 'Poussettes'], $product->categories);
         self::assertSame('Boutique SAS', $product->merchant->name);
@@ -220,6 +220,16 @@ final class WebGatewayTest extends TestCase
             }
         }
         self::assertCount(1, $requested, 'none of them requested');
+    }
+
+    /** A page's description is text made HTML: its markup and entities never come through as markup. */
+    public function testTheDescriptionIsEscapedHtml(): void
+    {
+        $page = '<html><head><script type="application/ld+json">{"@type":"Product","name":"Robot","description":"<p>Un robot &lt;script&gt;alert(1)&lt;/script&gt;<\/p><p onclick=\\"x()\\">Deux lignes<br>ici<\/p>","offers":{"price":"10","priceCurrency":"EUR"}}</script></head></html>';
+        $http = new MockHttpClient(static fn (): MockResponse => new MockResponse($page, ['response_headers' => ['content-type' => 'text/html']]));
+
+        $product = (new WebGatewayFactory($http))->create(['allow_private' => true])->fetchProduct('https://shop.example/robot');
+        self::assertSame("Un robot &lt;script&gt;alert(1)&lt;/script&gt;<br>\nDeux lignes<br>\nici", $product->description);
     }
 
     public function testAffiliateLinks(): void

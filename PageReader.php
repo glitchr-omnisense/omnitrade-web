@@ -121,7 +121,7 @@ final class PageReader
             provider: 'web',
             reference: $canonical,
             title: html_entity_decode($title, \ENT_QUOTES | \ENT_HTML5, 'UTF-8'),
-            description: isset($data['description']) ? trim(html_entity_decode(strip_tags((string) $data['description']), \ENT_QUOTES | \ENT_HTML5, 'UTF-8')) : null,
+            description: isset($data['description']) ? self::html((string) $data['description']) : null,
             handle: trim((string) parse_url($canonical, \PHP_URL_PATH), '/') ?: null,
             brand: $data['brand'] ?? null,
             url: $canonical,
@@ -477,5 +477,19 @@ final class PageReader
         $dir = preg_replace('~/[^/]*$~', '/', (string) ($parts['path'] ?? '/'));
 
         return $origin.$dir.$href;
+    }
+
+    /**
+     * A page's description as HTML (Product::$description's contract), made
+     * from its text: the page's markup is not passed on (its attributes may
+     * run script), its lines kept as <br>, every character escaped.
+     */
+    private static function html(string $description): ?string
+    {
+        $text = (string) preg_replace('~<br\s*/?>|</(?:p|div|li|h[1-6]|tr)\s*>~i', "\n", $description);
+        $text = html_entity_decode(strip_tags($text), \ENT_QUOTES | \ENT_HTML5, 'UTF-8');
+        $lines = array_values(array_filter(array_map('trim', explode("\n", $text)), static fn (string $line): bool => '' !== $line));
+
+        return $lines ? implode("<br>\n", array_map(static fn (string $line): string => htmlspecialchars($line, \ENT_QUOTES | \ENT_SUBSTITUTE | \ENT_HTML5, 'UTF-8'), $lines)) : null;
     }
 }

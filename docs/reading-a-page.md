@@ -34,6 +34,10 @@ read); relative images are made absolute; `raw['source']` says which markup
 answered (`json-ld`, `microdata`, `opengraph`). A page with none of them
 gives `null`.
 
+The description is HTML, as `Product::$description` has it, made from the text: the page's markup is
+not passed on (its attributes may run script), its paragraphs and line breaks become `<br>`, and
+every character is escaped (`&lt;`, `&apos;`...).
+
 Prices are read whatever their writing: `1 299,00`, `1.299,00 €`,
 `$1,299.00`.
 
