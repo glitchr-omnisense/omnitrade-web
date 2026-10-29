@@ -187,7 +187,7 @@ A page that describes no product is `null`, not an exception. Every request but 
 
 ## Verified, and not
 
-Tested offline, 39 tests: `Tests/WebGatewayTest.php` (what it answers, JSON-LD in a graph, a
+Tested offline, 36 tests: `Tests/WebGatewayTest.php` (what it answers, JSON-LD in a graph, a
 `ProductGroup` and its variants from `Tests/Fixtures/jsonld-group.html`, microdata, OpenGraph, no
 product and no page, the local network refused, a redirect to twelve kinds of private address
 refused before it is requested, a relative redirect followed, more than 5 redirects, a name checked
