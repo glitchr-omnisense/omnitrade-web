@@ -66,17 +66,25 @@ omnitrade:
 
 **Which addresses are read.** `http` and `https` only, with a host (else `Not a web address`,
 `invalid_url`). Unless `allow_private`, the host `localhost`, any `*.localhost` or `*.local`, and
-any host that is, or resolves (`gethostbynamel()`) to, a private or reserved IP address are refused
-(`private_address`), before any request. Addresses are pasted by anyone: this keeps the gateway
-off the machines of the local network.
+any host that is, or resolves to, an address off the public internet are refused
+(`private_address`), before any request: loopback, private (`10/8`, `172.16/12`, `192.168/16`),
+shared (`100.64/10`), link-local (`169.254/16`, the clouds' metadata address among them),
+multicast, reserved and documentation ranges; in IPv6 `::1`, `::`, unique local (`fc00::/7`),
+link-local (`fe80::/10`), site-local, multicast, documentation and `2001::/23`; and an IPv4 address
+carried in IPv6 (`::ffff:`, NAT64's `64:ff9b::`, 6to4's `2002::`) when that IPv4 address is
+refused. A name is checked by every address it resolves to, IPv4 (`gethostbynamel()`) and IPv6
+(`dns_get_record()`, AAAA); a name that resolves to none is refused too (`unresolved`). The request
+is then made to the address checked (the HTTP client's `resolve` option), so a second lookup cannot
+answer another address. Addresses are pasted by anyone: this keeps the gateway off the machines
+of the local network.
 
-> [!WARNING]
-> Redirects are followed by the HTTP client itself (up to 5); the final address is checked once
-> the page has been read, and a private one refused then. A public address that redirects to a
-> private one has already been requested by that time: the check keeps its content out of the
-> answer, not the request off the network.
+**Redirects.** Followed here, not by the HTTP client (`max_redirects: 0`): each `Location` of a
+301, 302, 303, 307 or 308 is made absolute against the address that answered it and checked as
+above before it is requested, so a public address that redirects to a private one is refused
+without the private one being asked. More than 5 is a `ProviderException` (`The page redirected
+more than 5 times.`, `too_many_redirects`).
 
-**The page.** One `GET`, at most 5 redirects, streamed and cut at `max_bytes`. An HTTP status of
+**The page.** One `GET` per address, at most 5 redirects, streamed and cut at `max_bytes`. An HTTP status of
 400 or more is a `ProviderException` with the status as `providerCode`. The markup is then read,
 in order of trust - JSON-LD, microdata, OpenGraph - [as described below](reading-a-page.md#omnitradeweb-reading-a-product-page).
 A page with none of them, or with no title at all, answers `null`. The product's `reference` and
@@ -167,7 +175,9 @@ affiliate link, a bare id answered `null` without a call, a local address refuse
 
 Every failure is an `Omnitrade\Exception\ProviderException` whose `provider` is `web`:
 
-- `Not a web address: "..."` (`invalid_url`), `"..." is on the local network.` (`private_address`);
+- `Not a web address: "..."` (`invalid_url`), `"..." is on the local network.` (`private_address`),
+  `"..." could not be resolved.` (`unresolved`), `The page redirected more than 5 times.`
+  (`too_many_redirects`);
 - `The page answered HTTP <status>.`, the status as `providerCode`;
 - `The page could not be read: ...` (DNS, connection, timeout), the HTTP client's exception as
   `previous`.
@@ -177,9 +187,12 @@ A page that describes no product is `null`, not an exception. Every request but 
 
 ## Verified, and not
 
-Tested offline, 21 tests: `Tests/WebGatewayTest.php` (what it answers, JSON-LD in a graph, a
+Tested offline, 39 tests: `Tests/WebGatewayTest.php` (what it answers, JSON-LD in a graph, a
 `ProductGroup` and its variants from `Tests/Fixtures/jsonld-group.html`, microdata, OpenGraph, no
-product and no page, the local network refused, affiliate links, prices in every writing) and
+product and no page, the local network refused, a redirect to twelve kinds of private address
+refused before it is requested, a relative redirect followed, more than 5 redirects, a name checked
+by its IPv4 and IPv6 addresses and requested at the address checked, affiliate links, prices in
+every writing) and
 `Tests/WebContractTest.php`, the family's conformance suite on a recorded product page (nothing to
 fix).
 
