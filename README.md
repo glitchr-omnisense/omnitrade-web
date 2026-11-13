@@ -5,6 +5,33 @@ fetched and its own markup read as an Omnitrade `Product` - the JSON-LD `Product
 `ProductGroup` and its variants) most shops publish for search engines, else schema.org
 microdata, else the OpenGraph tags. No account, no key. And affiliate links, by host.
 
+## Install and a first call
+
+```sh
+composer require omnitrade/web
+```
+
+No account and no request: an affiliate link is built locally.
+
+```php
+<?php
+
+require __DIR__.'/vendor/autoload.php';
+
+use Omnitrade\Web\WebGatewayFactory;
+
+// Affiliate links by host, from your programmes' parameters: no account, no request.
+$gateway = (new WebGatewayFactory())->create(['affiliate' => ['amazon.fr' => ['tag' => 'yourtag-21'], 'fnac.com' => ['awc' => '1_2']]]);
+
+echo $gateway->affiliateLink('https://www.fnac.com/a1'), "\n";   // https://www.fnac.com/a1?awc=1_2
+echo $gateway->affiliateLink('https://www.amazon.fr/dp/B0C1234567?ref_=abc&psc=1'), "\n";   // https://www.amazon.fr/dp/B0C1234567?tag=yourtag-21
+```
+
+`fetchProduct()` reads a product page you name, from its own markup (below); the links need only
+your programmes' parameters.
+
+## Configuration
+
 ```php
 $gateway = (new WebGatewayFactory($http))->create([]);   // $http: the application's HTTP client; none given, the factory makes its own
 ```

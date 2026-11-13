@@ -2,18 +2,51 @@
     "name": "omnitrade/web",
     "type": "library",
     "description": "Omnitrade Web: any product page read from its own markup - JSON-LD Product (and ProductGroup), microdata, OpenGraph - as an Omnitrade Product, and affiliate links by host.",
-    "keywords": ["product", "json-ld", "opengraph", "microdata", "schema.org", "affiliate", "omnitrade"],
+    "keywords": [
+        "product",
+        "json-ld",
+        "opengraph",
+        "microdata",
+        "schema.org",
+        "affiliate",
+        "omnitrade"
+    ],
     "license": "MIT",
-    "authors": [{"name": "Marco Meyer", "email": "marco.meyer@glitchr.io"}],
+    "authors": [
+        {
+            "name": "Marco Meyer",
+            "email": "marco.meyer@glitchr.io"
+        }
+    ],
     "require": {
         "php": ">=8.2",
         "ext-dom": "*",
         "ext-libxml": "*",
-        "omnisense/omnitrade": "^1.0@dev",
+        "omnisense/omnitrade": "^1.0",
         "symfony/http-client": "^6.4|^7.0|^8.0"
     },
-    "require-dev": {"phpunit/phpunit": "^11.0"},
-    "autoload": {"psr-4": {"Omnitrade\\Web\\": ""}, "exclude-from-classmap": ["/Tests/"]},
-    "autoload-dev": {"psr-4": {"Omnitrade\\Web\\Tests\\": "Tests/"}},
-    "config": {"sort-packages": true}
+    "require-dev": {
+        "phpunit/phpunit": "^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Omnitrade\\Web\\": ""
+        },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Omnitrade\\Web\\Tests\\": "Tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-1.x": "1.x-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
 }

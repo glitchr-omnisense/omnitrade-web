@@ -1,0 +1,499 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Strict comparison using \!\=\= between null and string will always evaluate to true\.$#'
+			identifier: notIdentical.alwaysTrue
+			count: 1
+			path: Action/AffiliateLinkAction.php
+
+		-
+			message: '#^Method Omnitrade\\Web\\Api\:\:lookup\(\) should return list\<string\> but returns list\<mixed\>\.$#'
+			identifier: return.type
+			count: 1
+			path: Api.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_unique expects an array of values castable to string, list\<mixed\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: Api.php
+
+		-
+			message: '#^Parameter \#1 \$haystack of function str_ends_with expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 2
+			path: Api.php
+
+		-
+			message: '#^Parameter \#1 \$haystack of function str_starts_with expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 2
+			path: Api.php
+
+		-
+			message: '#^Parameter \#2 \$string of function explode expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 2
+			path: Api.php
+
+		-
+			message: '#^Access to an undefined property DOMNameSpaceNode\|DOMNode\:\:\$textContent\.$#'
+			identifier: property.notFound
+			count: 2
+			path: PageReader.php
+
+		-
+			message: '#^Argument of an invalid type DOMNodeList\<DOMNameSpaceNode\|DOMNode\>\|false supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 2
+			path: PageReader.php
+
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 2
+			path: PageReader.php
+
+		-
+			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Cannot access offset ''available'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Cannot access offset ''currency'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Cannot access offset ''gtin'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Cannot access offset ''image'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Cannot access offset ''options'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Cannot access offset ''price'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: PageReader.php
+
+		-
+			message: '#^Cannot access offset ''priceCurrency'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Cannot access offset ''reference'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Cannot access offset ''sku'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: PageReader.php
+
+		-
+			message: '#^Cannot access offset ''title'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: PageReader.php
+
+		-
+			message: '#^Cannot access offset ''url'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Cannot call method item\(\) on DOMNodeList\<DOMNameSpaceNode\|DOMNode\>\|false\.$#'
+			identifier: method.nonObject
+			count: 6
+			path: PageReader.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 10
+			path: PageReader.php
+
+		-
+			message: '#^Method Omnitrade\\Web\\PageReader\:\:findProduct\(\) has parameter \$data with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Method Omnitrade\\Web\\PageReader\:\:findProduct\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Method Omnitrade\\Web\\PageReader\:\:fromJsonLd\(\) has parameter \$node with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Method Omnitrade\\Web\\PageReader\:\:fromJsonLd\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Method Omnitrade\\Web\\PageReader\:\:fromMicrodata\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Method Omnitrade\\Web\\PageReader\:\:fromOpenGraph\(\) has parameter \$meta with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Method Omnitrade\\Web\\PageReader\:\:fromOpenGraph\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Method Omnitrade\\Web\\PageReader\:\:gtin\(\) has parameter \$node with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Method Omnitrade\\Web\\PageReader\:\:jsonLd\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_unique expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Parameter \#1 \$decimal of static method Omnitrade\\Model\\Money\:\:fromDecimal\(\) expects float\|string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Parameter \#1 \$href of method Omnitrade\\Web\\PageReader\:\:absolute\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 3
+			path: PageReader.php
+
+		-
+			message: '#^Parameter \#1 \$json of function json_decode expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Parameter \#1 \$name of class Omnitrade\\Model\\Merchant constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Parameter \#1 \$name of class Omnitrade\\Model\\Option constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Parameter \#1 \$price of static method Omnitrade\\Web\\PageReader\:\:decimal\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Parameter \#1 \$reference of class Omnitrade\\Model\\ProductVariant constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Parameter \#1 \$string of function html_entity_decode expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Parameter \#1 \$string of function strtolower expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Parameter \#1 \$string of function trim expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 2
+			path: PageReader.php
+
+		-
+			message: '#^Parameter \#2 \$alt of class Omnitrade\\Model\\Media constructor expects string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 3
+			path: PageReader.php
+
+		-
+			message: '#^Parameter \#2 \$currency of static method Omnitrade\\Model\\Money\:\:fromDecimal\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Parameter \#2 \$in of closure expects DOMNode\|null, DOMNameSpaceNode\|DOMNode\|null given\.$#'
+			identifier: argument.type
+			count: 4
+			path: PageReader.php
+
+		-
+			message: '#^Parameter \#2 \$title of class Omnitrade\\Model\\ProductVariant constructor expects string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Parameter \#2 \$values of class Omnitrade\\Model\\Option constructor expects list\<string\>, list given\.$#'
+			identifier: argument.type
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Parameter \#3 \$available of class Omnitrade\\Model\\Offer constructor expects bool, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Parameter \#3 \$sku of class Omnitrade\\Model\\ProductVariant constructor expects string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: PageReader.php
+
+		-
+			message: '#^Parameter \#4 \$barcode of class Omnitrade\\Model\\ProductVariant constructor expects string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: PageReader.php
+
+		-
+			message: '#^Parameter \#4 \$url of class Omnitrade\\Model\\Offer constructor expects string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Parameter \#6 \$options of class Omnitrade\\Model\\ProductVariant constructor expects array\<string, string\>, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Parameter \$brand of class Omnitrade\\Model\\Product constructor expects string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Parameter \$categories of class Omnitrade\\Model\\Product constructor expects list\<string\>, list\<mixed\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: PageReader.php
+
+		-
+			message: '#^Method Omnitrade\\Web\\Tests\\WebContractTest\:\:recordedAnswers\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: Tests/WebContractTest.php
+
+		-
+			message: '#^Binary operation "\." between literal\-string&non\-falsy\-string and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: Tests/WebGatewayTest.php
+
+		-
+			message: '#^Cannot access offset ''user\-agent'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: Tests/WebGatewayTest.php
+
+		-
+			message: '#^Cannot access property \$amount on Omnitrade\\Model\\Money\|null\.$#'
+			identifier: property.nonObject
+			count: 4
+			path: Tests/WebGatewayTest.php
+
+		-
+			message: '#^Cannot access property \$available on Omnitrade\\Model\\Offer\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: Tests/WebGatewayTest.php
+
+		-
+			message: '#^Cannot access property \$brand on Omnitrade\\Model\\Product\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: Tests/WebGatewayTest.php
+
+		-
+			message: '#^Cannot access property \$currency on Omnitrade\\Model\\Money\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: Tests/WebGatewayTest.php
+
+		-
+			message: '#^Cannot access property \$description on Omnitrade\\Model\\Product\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: Tests/WebGatewayTest.php
+
+		-
+			message: '#^Cannot access property \$media on Omnitrade\\Model\\Product\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: Tests/WebGatewayTest.php
+
+		-
+			message: '#^Cannot access property \$merchant on Omnitrade\\Model\\Product\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: Tests/WebGatewayTest.php
+
+		-
+			message: '#^Cannot access property \$name on Omnitrade\\Model\\Merchant\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: Tests/WebGatewayTest.php
+
+		-
+			message: '#^Cannot access property \$options on Omnitrade\\Model\\Product\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: Tests/WebGatewayTest.php
+
+		-
+			message: '#^Cannot access property \$raw on Omnitrade\\Model\\Product\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: Tests/WebGatewayTest.php
+
+		-
+			message: '#^Cannot access property \$title on Omnitrade\\Model\\Product\|null\.$#'
+			identifier: property.nonObject
+			count: 4
+			path: Tests/WebGatewayTest.php
+
+		-
+			message: '#^Cannot access property \$url on Omnitrade\\Model\\Media\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: Tests/WebGatewayTest.php
+
+		-
+			message: '#^Cannot access property \$url on Omnitrade\\Model\\Product\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: Tests/WebGatewayTest.php
+
+		-
+			message: '#^Cannot access property \$variants on Omnitrade\\Model\\Product\|null\.$#'
+			identifier: property.nonObject
+			count: 6
+			path: Tests/WebGatewayTest.php
+
+		-
+			message: '#^Cannot call method price\(\) on Omnitrade\\Model\\Product\|null\.$#'
+			identifier: method.nonObject
+			count: 3
+			path: Tests/WebGatewayTest.php
+
+		-
+			message: '#^Method Omnitrade\\Web\\Tests\\WebGatewayTest\:\:gateway\(\) has parameter \$options with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: Tests/WebGatewayTest.php
+
+		-
+			message: '#^Method Omnitrade\\Web\\Tests\\WebGatewayTest\:\:gateway\(\) has parameter \$pages with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: Tests/WebGatewayTest.php
+
+		-
+			message: '#^Method Omnitrade\\Web\\Tests\\WebGatewayTest\:\:privateLocations\(\) return type has no value type specified in iterable type iterable\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: Tests/WebGatewayTest.php
+
+		-
+			message: '#^Parameter \#1 \$body of class Symfony\\Component\\HttpClient\\Response\\MockResponse constructor expects iterable\<string\|Throwable\>\|string, string\|false given\.$#'
+			identifier: argument.type
+			count: 2
+			path: Tests/WebGatewayTest.php
+
+		-
+			message: '#^Parameter \#1 \$options of method Omnitrade\\GatewayFactory\:\:create\(\) expects array\<string, mixed\>, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: Tests/WebGatewayTest.php
+
+		-
+			message: '#^Parameter \#2 \$array of function implode expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: Tests/WebGatewayTest.php
+
+		-
+			message: '#^Property Omnitrade\\Web\\Tests\\WebGatewayTest\:\:\$requests type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: Tests/WebGatewayTest.php
+
+		-
+			message: '#^Cannot cast mixed to int\.$#'
+			identifier: cast.int
+			count: 2
+			path: WebGatewayFactory.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 2
+			path: WebGatewayFactory.php
+
+		-
+			message: '#^Parameter \#1 \$rules of class Omnitrade\\Web\\Action\\AffiliateLinkAction constructor expects array\<string, array\<string, string\>\>, array\<mixed, mixed\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: WebGatewayFactory.php

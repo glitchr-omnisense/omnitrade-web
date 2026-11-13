@@ -1,6 +1,21 @@
 # Changelog
 
-## Unreleased (1.x)
+## [Unreleased]
+
+## [1.0.0] - 2026-11-13
+
+The first stable release: it installs with Composer's default minimum-stability (stable).
+
+### Release
+- Requires `omnisense/omnitrade` `^1.0`, a stable version, where it required `^1.0@dev`;
+  `extra.branch-alias` `dev-1.x` → `1.x-dev`.
+- CI: `.github/workflows/ci.yml` (glitchr-studio/ci's php-package.yml: the package installed alone,
+  PHPUnit, PHPStan against its baseline, a consumer install) and `release.yml` (that CI on the tag,
+  then glitchr-studio/ci's php-release.yml); `phpunit.xml.dist` runs the package's own tests.
+- `phpstan.neon` at level max, as its siblings, and `phpstan-baseline.neon`: what was there when
+  PHPStan came in (2026-11-13), which may only shrink.
+- README: the install line and a first call: an affiliate link, built locally (no account, no
+  request).
 
 ### Fixed
 - `Product::$description` is HTML, as the family's contract has it: the page's description as
